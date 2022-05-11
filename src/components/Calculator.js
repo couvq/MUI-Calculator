@@ -6,6 +6,10 @@ const Calculator = () => {
 
     const [results, setResults] = useState("");
 
+    const upDateCalculation = (e) => {
+        console.log(e.target.value);
+    }
+
     return (
         <>
             <div style={{ // styling to center the actual calulator in screen
@@ -26,7 +30,7 @@ const Calculator = () => {
                     justifyContent: "flex-end"
                 }}>
                     <Results results={results}/>
-                    <ButtonPanel />
+                    <ButtonPanel updateResults={upDateCalculation}/>
                 </div>
             </div>
         </>
