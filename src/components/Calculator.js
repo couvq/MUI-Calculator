@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ButtonPanel from './ButtonPanel';
 import Results from './Results';
 
 const Calculator = () => {
+
+    const [results, setResults] = useState("");
 
     return (
         <>
@@ -23,7 +25,7 @@ const Calculator = () => {
                     alignItems: "center",
                     justifyContent: "flex-end"
                 }}>
-                    <Results results={"Results"}/>
+                    <Results results={results}/>
                     <ButtonPanel />
                 </div>
             </div>
