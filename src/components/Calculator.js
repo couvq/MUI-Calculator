@@ -8,10 +8,27 @@ const Calculator = () => {
 
     const upDateCalculation = (e) => {
         const value = e.target.value;
-        if(value === "Clear") setResults(""); // empty string on clear
-        if(value === "=") setResults(eval(results));
-        if(value !== "Clear" && value !== "=") setResults(results.concat(value));
-        
+        if(value === "Clear") {
+            setResults("") 
+            return; 
+        }
+        // empty string on clear
+        if(value === "=") {
+            let newResults = eval(results);
+            setResults(newResults);
+            return;
+        }
+        // don't add an operation if results.length > 0
+        if(value === '+' || value === '-' || value === '*' || value === '/') {
+            if(results.length > 0) {
+               setResults(results.concat(value));
+               return;
+            } else {
+                return;
+            }
+        }
+        // otherwise it is a number so concatenate
+        setResults(results.concat(value));
     }
 
     return (
