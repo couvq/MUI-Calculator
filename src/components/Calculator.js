@@ -15,7 +15,7 @@ const Calculator = () => {
         // empty string on clear
         if(value === "=") {
             let newResults = eval(results);
-            setResults(newResults);
+            setResults("" + newResults);
             return;
         }
         // don't add an operation if results.length > 0
