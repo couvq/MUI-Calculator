@@ -7,7 +7,11 @@ const Calculator = () => {
     const [results, setResults] = useState("");
 
     const upDateCalculation = (e) => {
-        console.log(e.target.value);
+        const value = e.target.value;
+        if(value === "Clear") setResults(""); // empty string on clear
+        if(value === "=") setResults(eval(results));
+        if(value !== "Clear" && value !== "=") setResults(results.concat(value));
+        
     }
 
     return (
